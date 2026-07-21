@@ -44,7 +44,10 @@ body {
 /* Card styling - dark gradient card (matches reference design) */
 .card-container {
   position: relative;
-  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
@@ -55,6 +58,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   position: relative;
   z-index: 2;
   width: 92%;
@@ -149,10 +153,23 @@ body {
 }
 
 @keyframes dropTopEmoji {
-  0% { transform: translateY(-10px) rotate(-10deg); opacity: 0; }
-  10% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { transform: translateY(50px) rotate(10deg); opacity: 0; }
+  0% {
+    transform: translateY(-10px) rotate(-10deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(50px) rotate(10deg);
+    opacity: 0;
+  }
 }
 
 .pulsing-icon {
@@ -161,9 +178,17 @@ body {
 }
 
 @keyframes pulseIcon {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Floating Hearts Background */
@@ -415,14 +440,16 @@ body {
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
-  border-radius: inherit; /* Clip to card's rounded corners */
+  border-radius: inherit;
+  /* Clip to card's rounded corners */
 }
 
 .floating-heart {
   position: absolute;
   color: rgba(247, 86, 150, 0.4);
   animation: floatUp linear infinite;
-  top: -10vh; /* Start from top instead of bottom */
+  top: -10vh;
+  /* Start from top instead of bottom */
 }
 
 @keyframes floatUp {
@@ -430,14 +457,18 @@ body {
     transform: translateY(0) scale(0.5) rotate(0deg);
     opacity: 0;
   }
+
   10% {
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
-    transform: translateY(120vh) scale(1.2) rotate(45deg); /* Fall down instead of floating up */
+    transform: translateY(120vh) scale(1.2) rotate(45deg);
+    /* Fall down instead of floating up */
     opacity: 0;
   }
 }
@@ -449,34 +480,45 @@ body {
     border-radius: 20px;
     width: 95%;
   }
+
   .card-title {
     font-size: 1.8rem;
     margin-bottom: 20px;
   }
+
   .card-text {
     font-size: 1.1rem;
   }
+
   .card-icon {
     font-size: 2.5rem;
   }
+
   .buttons-container {
     gap: 15px;
     width: 100%;
   }
-  .btn-yes, .btn-no {
-    padding: 12px 25px !important; /* Override inline styles if needed */
+
+  .btn-yes,
+  .btn-no {
+    padding: 12px 25px !important;
+    /* Override inline styles if needed */
     font-size: 1.2rem !important;
   }
+
   .form-container {
     padding: 10px;
   }
+
   .receipt {
     padding: 20px 15px;
     max-width: 100%;
   }
+
   .receipt-top-edge {
     background-size: 15px 15px;
   }
+
   .receipt-bottom-edge {
     background-size: 15px 15px;
   }
