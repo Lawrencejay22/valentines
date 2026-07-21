@@ -41,7 +41,6 @@ body {
   color: #aa3bff;
 }
 
-/* Card styling - dark gradient card (matches reference design) */
 .card-container {
   position: relative;
   width: 100%;
@@ -68,9 +67,14 @@ body {
   overflow-x: hidden;
   box-sizing: border-box;
   text-align: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Corner heart decorations */
+.card::-webkit-scrollbar {
+  display: none;
+}
+
 .card-decorations {
   position: absolute;
   top: 0;
@@ -191,7 +195,6 @@ body {
   }
 }
 
-/* Floating Hearts Background */
 .floating-hearts {
   position: absolute;
   top: 0;
@@ -356,7 +359,6 @@ body {
   box-shadow: 0 6px 20px rgba(247, 86, 150, 0.55);
 }
 
-/* Receipt Styles */
 .receipt {
   position: relative;
   background: #fdfaf6;
@@ -430,7 +432,6 @@ body {
   animation: fadeInOut 1.5s infinite ease-in-out;
 }
 
-/* Floating Hearts Animation */
 .floating-hearts-container {
   position: absolute;
   top: 0;
@@ -441,7 +442,6 @@ body {
   pointer-events: none;
   z-index: 0;
   border-radius: inherit;
-  /* Clip to card's rounded corners */
 }
 
 .floating-heart {
@@ -449,7 +449,6 @@ body {
   color: rgba(247, 86, 150, 0.4);
   animation: floatUp linear infinite;
   top: -10vh;
-  /* Start from top instead of bottom */
 }
 
 @keyframes floatUp {
@@ -468,12 +467,10 @@ body {
 
   100% {
     transform: translateY(120vh) scale(1.2) rotate(45deg);
-    /* Fall down instead of floating up */
     opacity: 0;
   }
 }
 
-/* --- Mobile Responsiveness --- */
 @media (max-width: 500px) {
   .card {
     padding: 40px 25px;
@@ -502,7 +499,6 @@ body {
   .btn-yes,
   .btn-no {
     padding: 12px 25px !important;
-    /* Override inline styles if needed */
     font-size: 1.2rem !important;
   }
 
