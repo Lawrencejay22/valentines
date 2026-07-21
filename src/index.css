@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:wght@100..900&display=swap');
+
+@import "tailwindcss";
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  background-color: #fdf2f7;
+  color: #96154d;
+}
+
+.page {
+  width: 100vw;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.container {
+  width: 1126px;
+  max-width: 100%;
+  height: 720px;
+  background-color: #1f1f1f;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.text h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 48px;
+}
+
+.text span {
+  font-family: 'Dancing Script', cursive;
+  color: #aa3bff;
+}
+
+/* Card styling - dark gradient card (matches reference design) */
+.card-container {
+  position: relative;
+  margin: 0 auto;
+}
+
+.card {
+  background: linear-gradient(160deg, #1a0b2e 0%, #2a1152 45%, #3d1666 100%);
+  padding: 60px 70px;
+  border-radius: 28px;
+  box-shadow: 0 30px 70px rgba(122, 26, 158, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+  min-width: 420px;
+  max-width: min(600px, 92vw);
+  max-height: 90svh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Corner heart decorations */
+.card-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.card-deco {
+  position: absolute;
+  font-size: 1rem;
+  color: rgba(210, 170, 255, 0.35);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  z-index: 2;
+  position: relative;
+}
+
+.card-title {
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  z-index: 2;
+  position: relative;
+}
+
+.card-text {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  z-index: 2;
+  position: relative;
+}
+
+.card-text span {
+  color: #b3a0d9;
+}
+
+.card-subtext {
+  color: #9b86c4;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  z-index: 2;
+  position: relative;
+}
+
+
+#giftt {
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background-color: #1f1f1f;
+  color: white;
+  font-size: 16px;
+}
+
+/* Floating Hearts Background */
+.floating-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-heart {
+  position: absolute;
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite alternate;
+  filter: blur(1px);
+}
+
+.h1 {
+  top: 12%;
+  left: 12%;
+  font-size: 2.5rem;
+  animation-delay: 0s;
+}
+
+.h2 {
+  top: 22%;
+  right: 18%;
+  font-size: 1.5rem;
+  animation-delay: 1.5s;
+  filter: blur(0px);
+}
+
+.h3 {
+  bottom: 25%;
+  left: 15%;
+  font-size: 2rem;
+  animation-delay: 2.2s;
+}
+
+.h4 {
+  bottom: 35%;
+  right: 12%;
+  font-size: 2.5rem;
+  animation-delay: 3.5s;
+  opacity: 0.4;
+  filter: blur(2px);
+}
+
+.h5 {
+  top: 40%;
+  left: 85%;
+  font-size: 1.2rem;
+  animation-delay: 0.8s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(-5deg);
+  }
+
+  100% {
+    transform: translateY(-25px) rotate(5deg);
+  }
+}
+
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+  z-index: 2;
+  position: relative;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.btn-no {
+  background: #241035;
+  color: #d9c9f0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+}
+
+.btn-no:hover {
+  background: #2f1544;
+}
+
+.btn-yes {
+  background: linear-gradient(135deg, #f75696, #e0378a);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 25px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 6px 20px rgba(247, 86, 150, 0.45);
+  white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-yes:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(247, 86, 150, 0.55);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 350px;
+  margin-top: 10px;
+}
+
+.form-input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background-color: #1f1f1f;
+  color: white;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #f75696;
+}
+
+.form-submit {
+  background: linear-gradient(135deg, #f75696, #e0378a);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(247, 86, 150, 0.4);
+  width: 100%;
+  margin-top: 10px;
+}
+
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(247, 86, 150, 0.55);
+}
+
+/* Receipt Styles */
+.receipt {
+  position: relative;
+  background: #fdfaf6;
+  padding: 30px 24px;
+  width: 100%;
+  max-width: 420px;
+  margin-top: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: #c71543;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: left;
+  z-index: 10;
+  border-radius: 2px;
+}
+
+.receipt-top-edge,
+.receipt-bottom-edge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  z-index: 10;
+}
+
+.receipt-top-edge {
+  top: -10px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="10" xmlns="http://www.w3.org/2000/svg"><polygon points="0,10 10,0 20,10" fill="%23fdfaf6"/></svg>');
+  background-size: 20px 10px;
+  background-repeat: repeat-x;
+}
+
+.receipt-bottom-edge {
+  bottom: -10px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="10" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 10,10 20,0" fill="%23fdfaf6"/></svg>');
+  background-size: 20px 10px;
+  background-repeat: repeat-x;
+}
+
+.receipt-divider {
+  border-top: 1px dashed #f2a2b5;
+  margin: 15px 0;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0.19;
+  }
+}
+
+.stamp-official {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: 3px solid #f93e7b;
+  color: #f93e7b;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  padding: 2px 8px;
+  transform: rotate(-15deg);
+  border-radius: 4px;
+  pointer-events: none;
+  animation: fadeInOut 1.5s infinite ease-in-out;
+}
