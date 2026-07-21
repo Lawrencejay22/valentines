@@ -48,10 +48,10 @@ body {
 }
 
 .card {
-  background: linear-gradient(160deg, #1a0b2e 0%, #2a1152 45%, #3d1666 100%);
+  background: #ffffff;
   padding: 60px 70px;
   border-radius: 28px;
-  box-shadow: 0 30px 70px rgba(122, 26, 158, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  box-shadow: 0 15px 35px rgba(247, 86, 150, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,7 +80,8 @@ body {
 .card-deco {
   position: absolute;
   font-size: 1rem;
-  color: rgba(210, 170, 255, 0.35);
+  color: #f75696;
+  opacity: 0.6;
 }
 
 .card-icon {
@@ -91,9 +92,9 @@ body {
 }
 
 .card-title {
-  color: #ffffff;
+  color: #96154d;
   font-family: 'Inter', sans-serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
   margin-bottom: 25px;
   z-index: 2;
@@ -101,7 +102,7 @@ body {
 }
 
 .card-text {
-  color: #ffffff;
+  color: #e52b7a;
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 8px;
@@ -110,7 +111,7 @@ body {
 }
 
 .card-text span {
-  color: #b3a0d9;
+  color: #f75696;
 }
 
 .card-subtext {
@@ -129,6 +130,41 @@ body {
   background-color: #1f1f1f;
   color: white;
   font-size: 16px;
+}
+
+.top-border-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.top-border-emoji {
+  position: relative;
+  animation: dropTopEmoji 3s linear infinite;
+}
+
+@keyframes dropTopEmoji {
+  0% { transform: translateY(-10px) rotate(-10deg); opacity: 0; }
+  10% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(50px) rotate(10deg); opacity: 0; }
+}
+
+.pulsing-icon {
+  display: inline-block;
+  animation: pulseIcon 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseIcon {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
 
 /* Floating Hearts Background */
@@ -368,4 +404,41 @@ body {
   border-radius: 4px;
   pointer-events: none;
   animation: fadeInOut 1.5s infinite ease-in-out;
+}
+
+/* Floating Hearts Animation */
+.floating-hearts-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit; /* Clip to card's rounded corners */
+}
+
+.floating-heart {
+  position: absolute;
+  color: rgba(247, 86, 150, 0.4);
+  animation: floatUp linear infinite;
+  top: -10vh; /* Start from top instead of bottom */
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) scale(1.2) rotate(45deg); /* Fall down instead of floating up */
+    opacity: 0;
+  }
 }

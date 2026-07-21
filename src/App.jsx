@@ -4,6 +4,58 @@ import useMousePosition from './js/mouse.js';
 import useTypingEffect2 from './js/effect.js';
 import './index.css'
 
+const initialHearts = Array.from({ length: 15 }).map((_, i) => ({
+  id: i,
+  left: Math.random() * 100,
+  animDuration: Math.random() * 5 + 5,
+  animDelay: Math.random() * 5,
+  size: Math.random() * 1.5 + 1
+}));
+
+const FloatingHearts = () => {
+  const hearts = initialHearts.map((heart) => (
+    <div
+      key={heart.id}
+      className="floating-heart"
+      style={{
+        left: `${heart.left}%`,
+        animationDuration: `${heart.animDuration}s`,
+        animationDelay: `${heart.animDelay}s`,
+        fontSize: `${heart.size}rem`
+      }}
+    >
+      ❤️
+    </div>
+  ));
+
+  return <div className="floating-hearts-container">{hearts}</div>;
+};
+
+const topBorderDecorations = Array.from({ length: 15 }).map((_, i) => ({
+  id: i,
+  emoji: Math.random() > 0.7 ? '✨' : (Math.random() > 0.5 ? '💖' : '💕'),
+  top: Math.random() * 15 + 2,
+  delay: Math.random() * 3
+}));
+
+const TopBorderDecorations = () => (
+  <div className="top-border-decorations">
+    {topBorderDecorations.map((deco) => (
+      <span
+        key={deco.id}
+        className="top-border-emoji"
+        style={{
+          top: `${deco.top}px`,
+          animationDelay: `${deco.delay}s`,
+          fontSize: deco.emoji === '✨' ? '0.9rem' : '0.7rem'
+        }}
+      >
+        {deco.emoji}
+      </span>
+    ))}
+  </div>
+);
+
 export default function App() {
   const [noCount, setNoCount] = useState(0);
   const [noButtonStyle, setNoButtonStyle] = useState({});
@@ -26,7 +78,6 @@ export default function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // We update the UI to submitted immediately so they don't have to wait
     setIsSubmitted(true);
 
     try {
@@ -115,8 +166,10 @@ export default function App() {
   if (yesPressed) {
     return (
       <main className='page'>
+        <FloatingHearts />
         <section className="card-container">
           <div className="card">
+            <TopBorderDecorations />
             <div className="card-decorations">
               <span className="card-deco" style={{ top: '20px', left: '20px' }}>♥</span>
               <span className="card-deco" style={{ top: '20px', right: '20px' }}>♥</span>
@@ -124,9 +177,9 @@ export default function App() {
               <span className="card-deco" style={{ bottom: '20px', right: '20px' }}>♥</span>
             </div>
             <div className="card-icon" style={{ marginBottom: '15px' }}>
-              <span style={{ fontSize: '4rem' }}>🧸</span>
+              <span className="pulsing-icon" style={{ fontSize: '4rem' }}>🧸</span>
             </div>
-            <h2 className="card-title">Yayyyy! ❤️</h2>
+            <h2 className="card-title">Yay! ❤️</h2>
             <p className="card-text">I knew you would say yes!</p>
             <p className="card-text" style={{ marginBottom: '15px' }}><span>{typingText2}</span></p>
             {isSubmitted ? (
@@ -208,6 +261,7 @@ export default function App() {
 
   return (
     <main className='page'>
+      <FloatingHearts />
       {/* Card */}
       <section className="card-container">
         <div className="card">
