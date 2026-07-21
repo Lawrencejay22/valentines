@@ -10,11 +10,11 @@ body {
 }
 
 .page {
-  width: 100vw;
-  height: 100svh;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh; /* Adapts to mobile browser address bars */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   position: relative;
 }
 
@@ -44,9 +44,11 @@ body {
 .card-container {
   position: relative;
   width: 100%;
+  flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  padding: 20px 0; /* Add padding so card never touches screen edges */
+  box-sizing: border-box;
 }
 
 .card {
@@ -57,15 +59,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Removed justify-content: center to fix mobile scrolling clipping */
   position: relative;
   z-index: 2;
   width: 92%;
   max-width: 600px;
-  max-height: 90svh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  box-sizing: border-box;
+  margin: auto; /* Perfectly centers vertically and horizontally without clipping */
   text-align: center;
   -ms-overflow-style: none;
   scrollbar-width: none;
