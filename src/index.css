@@ -496,8 +496,8 @@ body {
 
   .btn-yes,
   .btn-no {
-    padding: 12px 25px !important;
-    font-size: 1.2rem !important;
+    padding: 12px 25px;
+    font-size: 1.2rem;
   }
 
   .form-container {
